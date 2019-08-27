@@ -22,4 +22,12 @@ jobs:
       - checkout
 
       # specify any bash command here prefixed with `run: `
-      - run: go test -v ./..
+      - run:
+          name: run build
+          command: |
+            go build -v
+      - run:
+          name: run tests
+          command: |
+            go fmt ./...
+            go test -v ./..
